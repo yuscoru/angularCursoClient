@@ -1,1 +1,45 @@
-<p>curso-listado works!</p>
+  <form>
+    <div class="container" style="background-color:#ccc">
+
+      <h1>Catalogo cursos</h1>
+      <div style="background-color:#fff">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Titulo &uarr;</th>
+              <th scope="col">Profesor</th>
+              <th scope="col">Nivel</th>
+              <th scope="col">Horas</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let curso of cursos | async">
+            <tr>
+              <td>{{curso.titulo}}</td>
+              <td>Roberto Canales</td>
+              <td>{{curso.nivel}}</td>
+              <td>{{curso.horas}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-group">
+
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          <button type="button" style="margin-left:20px;" class="btn btn-secondary"><a routerLink="/rest/v1/crearCurso">Crear Curso</a></button>
+        </ul>
+      </div>
+    </div>
+  </form>

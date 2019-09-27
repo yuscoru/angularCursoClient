@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs";
+import { CursosService } from "../cursos.service";
+import { Curso } from "../curso";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-curso-listado',
@@ -6,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./curso-listado.component.css']
 })
 export class CursoListadoComponent implements OnInit {
-
-  constructor() { }
+  cursos: Observable<Curso[]>;
+  constructor(private cursoService: CursosService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.reloadData();
   }
-
+  reloadData() {
+    this.cursos = this.cursoService.buscarCursos();
+  }
 }

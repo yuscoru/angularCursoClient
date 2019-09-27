@@ -6,19 +6,19 @@ import { AppComponent } from './app.component';
 import { CrearCursoComponent } from './crear-curso/crear-curso.component';
 import { CursoDetalleComponent } from './curso-detalle/curso-detalle.component';
 import { CursoListadoComponent } from './curso-listado/curso-listado.component';
-import { Profesor } from './profesor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearCursoComponent,
     CursoDetalleComponent,
-    CursoListadoComponent,
-    Profesor
+    CursoListadoComponent    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
