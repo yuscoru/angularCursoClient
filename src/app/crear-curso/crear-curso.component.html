@@ -8,11 +8,8 @@
     </div>
     <div class="form-group">
       <label for="profesores">Profesor</label>
-      <select name="Profesores">
-        <option value="PR1">Roberto Canales</option>
-        <option value="PR2">David Gomez</option>
-        <option value="PR3">Alberto Moratilla</option>
-        <option value="PR4">Rubén Aguilera</option>
+      <select name="Profesores" >
+        <option *ngFor="let profesor of profesores | async" value="{{profesor.id}}">{{profesor.nombre}}</option>
       </select><br>
 
     </div>

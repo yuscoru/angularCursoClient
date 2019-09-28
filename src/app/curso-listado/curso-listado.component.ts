@@ -13,7 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class CursoListadoComponent implements OnInit {
 
   cursos: Observable<Curso[]>;
-  paginaActual: number = 1;;
+  paginaActual: number = 1;
   constructor(private cursoService: CursosService,
     private router: Router) { }
 
