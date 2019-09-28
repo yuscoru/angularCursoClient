@@ -10,7 +10,7 @@ export class CursosService {
   constructor(private http: HttpClient) { }
 
   crearCurso(curso: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, curso);
+    return this.http.post(`${this.baseUrl}/curso`, curso);
   }
 
   buscarCursos(): Observable<any> {

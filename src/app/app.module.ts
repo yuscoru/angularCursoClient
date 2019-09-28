@@ -7,19 +7,23 @@ import { CursoDetalleComponent } from './curso-detalle/curso-detalle.component';
 import { CursoListadoComponent } from './curso-listado/curso-listado.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearCursoComponent,
     CursoDetalleComponent,
-    CursoListadoComponent
+    CursoListadoComponent,
+    NgSelectModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

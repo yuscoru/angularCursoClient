@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { ProfesoresService } from "../profesores.service";
+import { CursosService } from "../cursos.service";
 import { Profesor } from "../profesor";
+import { Curso } from "../curso";
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -11,12 +15,37 @@ import { Profesor } from "../profesor";
 })
 export class CrearCursoComponent implements OnInit {
   profesores: Observable<Profesor[]>;
-  constructor(private profesoresService: ProfesoresService) { }
+  curso: Curso = new Curso();
+  submitted = false;
+
+  constructor(private profesoresService: ProfesoresService,
+    private cursosService: CursosService,
+    private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
   }
   reloadData() {
     this.profesores = this.profesoresService.buscarProfesores();
+  }
+  newCurso(): void {
+    this.submitted = false;
+    this.curso = new Curso();
+  }
+
+  save() {
+    this.cursosService.crearCurso(this.curso)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.curso = new Curso();
+    this.gotoList();
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+
+  gotoList() {
+    this.router.navigate(['/rest/v1/cursos']);
   }
 }
