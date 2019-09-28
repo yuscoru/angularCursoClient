@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { CursosService } from "../cursos.service";
 import { Curso } from "../curso";
 import { Router } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-curso-listado',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./curso-listado.component.css']
 })
 export class CursoListadoComponent implements OnInit {
+
   cursos: Observable<Curso[]>;
+  paginaActual: number = 1;;
   constructor(private cursoService: CursosService,
     private router: Router) { }
 
