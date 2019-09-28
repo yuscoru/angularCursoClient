@@ -5,5 +5,6 @@ export class Curso {
   horas:number;
   titulo:string;
   activo: number;
+  idProfesor: number;
   profesor: Profesor;
 }
