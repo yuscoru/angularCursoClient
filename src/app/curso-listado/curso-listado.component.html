@@ -15,7 +15,7 @@
           <tbody *ngFor="let curso of cursos | async | paginate:{itemsPerPage: 10, currentPage:paginaActual}">
             <tr>
               <td>{{curso.titulo}}</td>
-              <td>Roberto Canales</td>
+              <td>{{curso.profesor.nombre}}</td>
               <td>{{curso.nivel}}</td>
               <td>{{curso.horas}}</td>
             </tr>
