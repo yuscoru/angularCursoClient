@@ -19,12 +19,13 @@
     </div>
     <div class="form-group">
       <label for="nivel">Nivel</label>
-      <select name="nivel">
-        <option value="BA">Basico</option>
-        <option value="IN">Intermedio</option>
-        <option value="AV">Avanzado</option>
-
-      </select><br>
+      <ng-select [items]="nivelesCurso"
+                 bindLabel="name"
+                 bindValue="name"
+                 placeholder="Selecciona Nivel Curso"
+                 [(ngModel)]="curso.nivel"
+                 name="nivel">
+      </ng-select><br>
     </div>
     <div class="form-group">
       <label for="horas">Horas</label>

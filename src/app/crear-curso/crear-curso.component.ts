@@ -18,6 +18,13 @@ export class CrearCursoComponent implements OnInit {
   curso: Curso = new Curso();
   submitted = false;
 
+  nivelesCurso = [
+    { id: 'BASICO', name: 'BASICO' },
+    { id: 'MEDIO', name: 'MEDIO' },
+    { id: 'AVANZADO', name: 'AVANZADO' }
+  ];
+  selectedUserIds: number[];
+
   constructor(private profesoresService: ProfesoresService,
     private cursosService: CursosService,
     private router: Router) { }

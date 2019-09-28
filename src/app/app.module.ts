@@ -15,15 +15,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AppComponent,
     CrearCursoComponent,
     CursoDetalleComponent,
-    CursoListadoComponent,
-    NgSelectModule
+    CursoListadoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
