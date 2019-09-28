@@ -24,7 +24,7 @@ export class CrearCursoComponent implements OnInit {
     { id: 'AVANZADO', name: 'AVANZADO' }
   ];
   selectedUserIds: number[];
-
+  checkboxFlag: boolean;
   constructor(private profesoresService: ProfesoresService,
     private cursosService: CursosService,
     private router: Router) { }

@@ -4,7 +4,7 @@ export class Curso {
   nivel:string;
   horas:number;
   titulo:string;
-  activo: number;
+  activo: boolean;
   idProfesor: number;
   profesor: Profesor;
 }
