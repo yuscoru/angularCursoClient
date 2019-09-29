@@ -24,6 +24,7 @@ export class CursoListadoComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+    this.asc = !this.asc;
   }
   reloadData() {
     this.cursos = this.cursoService.buscarCursos(this.asc);
@@ -32,6 +33,5 @@ export class CursoListadoComponent implements OnInit {
   ordenar($event) {
     this.reloadData();
     this.asc = !this.asc;
-    console.log("Despues de ordenar", this.asc);
   }
 }

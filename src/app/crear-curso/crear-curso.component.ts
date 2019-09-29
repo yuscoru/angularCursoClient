@@ -5,7 +5,6 @@ import { CursosService } from "../cursos.service";
 import { Profesor } from "../profesor";
 import { Curso } from "../curso";
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 
 @Component({
