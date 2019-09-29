@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Curso } from "./curso";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class CursosService {
     return this.http.post(`${this.baseUrl}/curso`, curso);
   }
 
-  buscarCursos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  buscarCursos(asc:boolean): Observable<any> {
+    return this.http.get(`${this.baseUrl}?&ascendente=${asc}`);
   }
 }
 

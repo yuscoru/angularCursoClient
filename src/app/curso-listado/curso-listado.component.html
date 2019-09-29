@@ -6,7 +6,14 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Titulo &uarr;</th>
+              <th scope="col">
+                <table>
+                  <tr>
+                    <td>Titulo</td>
+                    <td><button   type="button" class="btn" (click)="ordenar($event)"><fa-icon [icon]="faSort"></fa-icon></button></td>
+                  </tr>
+                </table>
+              </th>
               <th scope="col">Profesor</th>
               <th scope="col">Nivel</th>
               <th scope="col">Horas</th>
@@ -22,5 +29,6 @@
           </tbody>
         </table>
       </div>
-      <pagination-controls (pageChange)="paginaActual=$event"></pagination-controls></div>
+      <pagination-controls (pageChange)="paginaActual=$event"></pagination-controls>
+    </div>
   </form>
