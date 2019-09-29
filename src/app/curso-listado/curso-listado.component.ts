@@ -4,7 +4,8 @@ import { CursosService } from "../cursos.service";
 import { Curso } from "../curso";
 import { Router } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-curso-listado',
@@ -15,7 +16,8 @@ export class CursoListadoComponent implements OnInit {
 
   cursos: Observable<Curso[]>;
   paginaActual: number = 1;
-  faSort = faSort;
+  faSortUp = faSortUp;
+  faSortDown = faSortDown;
   asc: boolean = true;
   constructor(private cursoService: CursosService,
     private router: Router) { }
@@ -28,9 +30,8 @@ export class CursoListadoComponent implements OnInit {
   }
 
   ordenar($event) {
-    this.asc = !this.asc;
-    console.log("Pagina antes del reload", this.paginaActual);
     this.reloadData();
-    console.log("Pagina despues del reload", this.paginaActual);
+    this.asc = !this.asc;
+    console.log("Despues de ordenar", this.asc);
   }
 }
