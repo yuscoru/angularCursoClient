@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\crear-curso",
+    "\\src\\app\\curso-listado"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\test.ts",
   "PreviewInSolutionExplorer": false
 }

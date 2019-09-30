@@ -6,19 +6,12 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">
-                <table>
-                  <tr>
-                    <td>Titulo</td>
-                    <td>
-                      <button type="button"  (click)="ordenar($event)">
-                        <fa-icon [icon]="faSortDown" *ngIf="asc"></fa-icon>
-                        <fa-icon [icon]="faSortUp" *ngIf="!asc"></fa-icon>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              </th>
+              <th scope="col">Titulo
+                <button type="button" (click)="ordenar($event)">
+                  <fa-icon [icon]="faSortDown" *ngIf="asc"></fa-icon>
+                  <fa-icon [icon]="faSortUp" *ngIf="!asc"></fa-icon>
+                </button>
+               </th>
               <th scope="col">Profesor</th>
               <th scope="col">Nivel</th>
               <th scope="col">Horas</th>

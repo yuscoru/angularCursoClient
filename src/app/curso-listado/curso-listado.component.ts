@@ -3,7 +3,6 @@ import { Observable } from "rxjs";
 import { CursosService } from "../cursos.service";
 import { Curso } from "../curso";
 import { Router } from '@angular/router';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 
