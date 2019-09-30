@@ -59,6 +59,8 @@ export class CrearCursoComponent implements OnInit {
   }
 
   gotoList() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/rest/v1/cursos']);
   }
 

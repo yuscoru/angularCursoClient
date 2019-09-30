@@ -6,19 +6,20 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Titulo
+              <th scope="col">
+                Titulo
                 <button type="button" (click)="ordenar($event)">
                   <fa-icon [icon]="faSortDown" *ngIf="asc"></fa-icon>
                   <fa-icon [icon]="faSortUp" *ngIf="!asc"></fa-icon>
                 </button>
-               </th>
+              </th>
               <th scope="col">Profesor</th>
               <th scope="col">Nivel</th>
               <th scope="col">Horas</th>
             </tr>
           </thead>
-          <tbody *ngFor="let curso of cursos | async | paginate:{itemsPerPage: 10, currentPage:paginaActual}">
-            <tr>
+          <tbody>
+            <tr *ngFor="let curso of cursos | async | paginate:{itemsPerPage: 10, currentPage:paginaActual}">
               <td>{{curso.titulo}}</td>
               <td>{{curso.profesor.nombre}}</td>
               <td>{{curso.nivel}}</td>
@@ -27,6 +28,17 @@
           </tbody>
         </table>
       </div>
-      <pagination-controls (pageChange)="paginaActual=$event"></pagination-controls>
+      <div>
+        <table>
+          <tr>
+            <td align="right">
+              <pagination-controls (pageChange)="paginaActual=$event"></pagination-controls>
+            </td>
+            <td align="left">
+              <button routerLink="/rest/v1/crearCurso" type="button" class="btn btn-primary">Nuevo Curso</button>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </form>

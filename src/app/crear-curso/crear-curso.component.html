@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
       <label for="Titulo">Titulo</label>
-      <input type="text" name="Titulo" required [ngModel]="curso.titulo | uppercase" (ngModelChange)="curso.titulo=$event"/><br>
+      <input type="text" name="Titulo" required [ngModel]="curso.titulo | uppercase" (ngModelChange)="curso.titulo=$event" /><br>
     </div>
     <div class="form-group">
       <label for="nivel">Nivel</label>
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
       <label for="horas">Horas</label>
-      <input type="number" name="horas" min="1" max="99" maxlength="2" onKeyDown="if(this.value.length==2) return false;" required [(ngModel)]="curso.horas"/>
+      <input type="number" name="horas" min="1" max="99" maxlength="2" onKeyDown="if(this.value.length==2) return false;" required [(ngModel)]="curso.horas" />
     </div>
     <button type="submit" class="btn btn-primary">Crear Curso</button>
   </form>
