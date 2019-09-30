@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from "rxjs";
 import { ProfesoresService } from "../profesores.service";
 import { CursosService } from "../cursos.service";
 import { Profesor } from "../profesor";
 import { Curso } from "../curso";
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
   templateUrl: './crear-curso.component.html',
   styleUrls: ['./crear-curso.component.css']
 })
-export class CrearCursoComponent implements OnInit {
+export class CrearCursoComponent implements OnInit{
   profesores: Observable<Profesor[]>;
   curso: Curso = new Curso();
   submitted = false;
+  navigationSubscription;
 
   nivelesCurso = [
     { id: 'BASICO', name: 'BASICO' },
@@ -26,7 +27,8 @@ export class CrearCursoComponent implements OnInit {
   checkboxFlag: boolean;
   constructor(private profesoresService: ProfesoresService,
     private cursosService: CursosService,
-    private router: Router) { }
+    private router: Router) {
+  }
 
   ngOnInit() {
     this.reloadData();
@@ -59,9 +61,8 @@ export class CrearCursoComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/rest/v1/cursos']);
   }
+
 
 }

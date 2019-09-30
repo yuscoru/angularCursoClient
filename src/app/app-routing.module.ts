@@ -6,7 +6,7 @@ import { CrearCursoComponent } from './crear-curso/crear-curso.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'rest/v1/cursos', pathMatch: 'full' },
-  { path: 'rest/v1/cursos', component: CursoListadoComponent },
+  { path: 'rest/v1/cursos', component: CursoListadoComponent, runGuardsAndResolvers: 'always' },
   { path: 'rest/v1/crearCurso', component: CrearCursoComponent }
 ];
 
