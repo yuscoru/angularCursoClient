@@ -26,11 +26,15 @@ export class CursoListadoComponent implements OnInit {
     this.asc = !this.asc;
   }
   reloadData() {
-    this.cursos = this.cursoService.buscarCursos(this.asc);
+    this.cursos = this.buscarCursos();
   }
 
   ordenar($event) {
     this.reloadData();
     this.asc = !this.asc;
+  }
+
+  buscarCursos(): Observable<Curso[]> {
+    return this.cursoService.buscarCursos(this.asc);
   }
 }

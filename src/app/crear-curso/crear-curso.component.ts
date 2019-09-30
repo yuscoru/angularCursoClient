@@ -32,7 +32,7 @@ export class CrearCursoComponent implements OnInit {
     this.reloadData();
   }
   reloadData() {
-    this.profesores = this.profesoresService.buscarProfesores();
+    this.profesores = this.buscarProfesores();
   }
   newCurso(): void {
     this.submitted = false;
@@ -40,12 +40,19 @@ export class CrearCursoComponent implements OnInit {
   }
 
   save() {
-    this.cursosService.crearCurso(this.curso)
-      .subscribe(data => console.log(data), error => console.log(error));
+    this.saveCurso().subscribe(data =>
+      console.log(data),
+      error => console.log(error));
     this.curso = new Curso();
     this.gotoList();
   }
 
+  saveCurso(): Observable<Object>{
+    return this.cursosService.crearCurso(this.curso); 
+  }
+  buscarProfesores(): Observable<Profesor[]> {
+    return this.profesoresService.buscarProfesores();
+  }
   onSubmit() {
     this.submitted = true;
     this.save();
@@ -54,4 +61,5 @@ export class CrearCursoComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/rest/v1/cursos']);
   }
+
 }

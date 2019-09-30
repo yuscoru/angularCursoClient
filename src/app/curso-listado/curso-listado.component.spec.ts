@@ -48,22 +48,23 @@ describe('CursoListadoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CursoListadoComponent);
     component = fixture.componentInstance;
-    //fixture.detectChanges();
+    fixture.detectChanges();
   });
 
 
-  it('should be created', inject([CursosService], (service: CursosService) => {
-    expect(service).toBeTruthy();
-  }));
-  it('should get cursos', () => {
-    const service: CursosService = TestBed.get(CursosService);
-    service.buscarCursos(true).subscribe(
-      (cursos) => {
-        console.log("CURSOS", cursos);
-        expect(cursos._body[0].titulo).toEqual("PARTICIONADO");
-        expect(cursos._body[0].activo).toEqual(true);
-        expect(cursos._body[0].profesor.nombre).toEqual("PANCRACIO");
+  it('should create ', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should get cursos ', async(() => {
+
+    component.buscarCursos().subscribe(
+      cursos => {
+        console.log("cursos : ", cursos);
+        expect(cursos[0].titulo).toEqual("PARTICIONADO");
+        expect(cursos[0].activo).toEqual(true);
+        expect(cursos[0].profesor.nombre).toEqual("PANCRACIO");
       }
     );
-  });
+  }));
 });

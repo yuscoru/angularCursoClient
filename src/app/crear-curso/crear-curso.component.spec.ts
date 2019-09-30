@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CursosServiceMock } from "../cursos.serviceMock.spec";
 import { CursosService } from "../cursos.service";
+import { ProfesoresServiceMock } from "../profesores.serviceMock.spec";
 import { CursoListadoComponent } from '../curso-listado/curso-listado.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
 import { ProfesoresService } from "../profesores.service";
 
-xdescribe('CrearCursoComponent', () => {
+describe('CrearCursoComponent', () => {
   let component: CrearCursoComponent;
   let fixture: ComponentFixture<CrearCursoComponent>;
 
@@ -35,9 +37,10 @@ xdescribe('CrearCursoComponent', () => {
         FontAwesomeModule
       ],
       providers: [
-        CursoListadoComponent,
-        CursosService
-        //{ provide: CursosService, useClass: CursosServiceMock },
+        CursosService,
+        { provide: CursosService, useClass: CursosServiceMock },
+        ProfesoresService,
+        { provide: ProfesoresService, useClass: ProfesoresServiceMock }
       ]})
     .compileComponents();
   }));
@@ -48,7 +51,28 @@ xdescribe('CrearCursoComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create CrearCursoComponent', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get profesores ', async(() => {
+    component.buscarProfesores().subscribe(
+      profesores => {
+        console.log("profesores : ", profesores);
+        expect(profesores[0].id).toEqual(1);
+        expect(profesores[0].nombre).toEqual("PANCRACIO");
+      }
+    );
+  }));
+  it('should crear cursos ', async(() => {
+    component.saveCurso().subscribe(
+      curso => {
+        console.log("curso : ", curso);
+        expect(curso[0].id).toEqual(1);
+        expect(curso[0].titulo).toEqual("PARTICIONADO");
+        expect(curso[0].nivel).toEqual("MEDIO");
+        expect(curso[0].profesor.nombre).toEqual("PANCRACIO");
+      }
+    );
+  }));
 });
