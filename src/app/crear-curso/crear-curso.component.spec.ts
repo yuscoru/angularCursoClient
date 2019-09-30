@@ -75,4 +75,17 @@ describe('CrearCursoComponent', () => {
       }
     );
   }));
+  it('should put submitted to false when  save', () => {
+    component.save();
+    expect(component.submitted).toEqual(false);
+  });
+  it('should put submitted to false when  newCurso', () => {
+    component.newCurso();
+    expect(component.submitted).toEqual(false);
+  });
+  it('should put submitted to true when  save', () => {
+    component.onSubmit();
+    expect(component.submitted).toEqual(true);
+  });
+
 });
