@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\e2e",
+    "\\e2e\\src",
     "\\src",
     "\\src\\app",
     "\\src\\app\\crear-curso",
     "\\src\\app\\curso-listado"
   ],
-  "SelectedNode": "\\src\\test.ts",
+  "SelectedNode": "\\src\\app\\cursos.listaDummy.spec.ts",
   "PreviewInSolutionExplorer": false
 }
